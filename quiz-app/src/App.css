@@ -40,3 +40,56 @@
 .read-the-docs {
   color: #888;
 }
+
+.result-container {
+  text-align: center;
+  padding: 20px;
+}
+
+.review-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 20px;
+}
+
+.review-item {
+  background-color: #f4f4f4;
+  padding: 15px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  text-align: left;
+}
+
+.correct {
+  border-left: 6px solid rgb(15, 235, 15);
+}
+
+.incorrect {
+  border-left: 6px solid red;
+}
+
+.text-green {
+  color: green;
+}
+
+.text-red {
+  color: red;
+}
+
+.result-buttons {
+  margin-top: 20px;
+}
+
+.result-buttons button {
+  margin: 10px;
+  padding: 10px 20px;
+  border: none;
+  background-color: #1f2022;
+  color: rgb(34, 3, 3);
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.result-buttons button:hover {
+  background-color: #90a9c4;
+}
