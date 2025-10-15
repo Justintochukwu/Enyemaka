@@ -1,49 +1,54 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-import QuizResult from './components/QuizResult'
-import QuizSetup from './components/QuizSetup'
+import { useState } from "react";
+import QuizSetup from "./components/QuizSetup";
+import BrainBox from "./components/BrainBox";
+import QuizResult from "./components/QuizResult";
+import Header from "./components/Header";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [stage, setStage] = useState("setup"); // 'setup' | 'quiz' | 'result'
+  const [questions, setQuestions] = useState([]);
+  const [score, setScore] = useState(0);
+
+  // Called when user starts quiz from setup
+  const handleStartQuiz = (fetchedQuestions) => {
+    setQuestions(fetchedQuestions);
+    setStage("quiz");
+  };
+
+  // Called when quiz ends
+  const handleQuizEnd = (finalScore) => {
+    setScore(finalScore);
+    setStage("result");
+  };
+
+  // Restart to setup
+  const handleRestart = () => {
+    setScore(0);
+    setQuestions([]);
+    setStage("setup");
+  };
 
   return (
-    <>
-      <div>
-        <QuizResult
-          score={3}
-          total={5}
-          questions={[
-            { question: "What is React?", correct_answer: "Library" },
-            { question: "What is JSX?", correct_answer: "Syntax extension" },
-          ]}
-          userAnswers={["Library", "Syntax extension"]}
-          onRetry={() => console.log("Retry clicked")}
-          onNewQuiz={() => console.log("New Quiz clicked")}
-        />
-        <QuizSetup />
-        <a href="https://vite.dev" target="_blank" rel="noreferrer">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank" rel="noreferrer">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <div className="min-h-screen bg-orange-100 flex flex-col text-center">
+      {/* Always show Header */}
+      <Header />
+
+      {/* Main content area */}
+      <main className="flex-grow flex items-center justify-center p-4">
+        {stage === "setup" && <QuizSetup onStartQuiz={handleStartQuiz} />}
+        {stage === "quiz" && (
+          <BrainBox questions={questions} onQuizEnd={handleQuizEnd} />
+        )}
+        {stage === "result" && (
+          <QuizResult
+            score={score}
+            total={questions.length}
+            onRestart={handleRestart}
+          />
+        )}
+      </main>
+    </div>
+  );
 }
 
-export default App
+export default App;

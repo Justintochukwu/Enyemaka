@@ -1,58 +1,23 @@
 import React from "react";
 
-const QuizResult = ({
-  score = 0,
-  total = 0,
-  questions = [],
-  userAnswers = [],
-  onRetry,
-  onNewQuiz,
-}) => {
+const QuizResult = ({ score, total, onRestart }) => {
+  const percentage = Math.round((score / total) * 100);
+
   return (
-    <div className="result-container">
-      <h2>Well Done!!!</h2>
-      <p>
-        Here is your Final Score: <strong>{score}</strong> / {total}
+    <div className="max-w-md mx-auto text-center p-6 bg-white shadow-lg rounded-2xl">
+      <h2 className="text-3xl font-bold mb-4 text-blue-700">Quiz Completed</h2>
+
+      <p className="text-lg mb-2">
+        Your Score: <span className="font-bold">{score}</span> / {total}
       </p>
+      <p className="text-2xl font-semibold mb-6">{percentage}%</p>
 
-      <h3>Review Answers:</h3>
-      <ul className="review-list">
-        {questions.map((question, index) => {
-          const isCorrect = userAnswers[index] === question.correct_answer;
-          return (
-            <li
-              key={index}
-              className={`review-item ${isCorrect ? "correct" : "incorrect"}`}
-            >
-              <p>
-                <strong>Q{index + 1}:</strong>{" "}
-                <span
-                  dangerouslySetInnerHTML={{ __html: question.question }}
-                />
-              </p>
-              <p>
-                Correct Answer: {question.correct_answer}
-              </p>
-              <p>
-                Your Answer:{" "}
-                <span className={isCorrect ? "text-green" : "text-red"}>
-                  {userAnswers[index]}
-                </span>
-              </p>
-              {question.explanation && (
-                <p className="explanation">
-                  Explanation: {question.explanation}
-                </p>
-              )}
-            </li>
-          );
-        })}
-      </ul>
-
-      <div className="result-buttons">
-        <button onClick={onRetry}>Retake Quiz</button>
-        <button onClick={onNewQuiz}>Choose Another Topic</button>
-      </div>
+      <button
+        onClick={onRestart}
+        className="bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-700 transition"
+      >
+        Try Again
+      </button>
     </div>
   );
 };
