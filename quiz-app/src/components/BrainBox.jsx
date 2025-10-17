@@ -5,7 +5,7 @@ const BrainBox = ({ questions, onQuizEnd }) => {
   const [selectedAnswer, setSelectedAnswer] = useState("");
   const [score, setScore] = useState(0);
   const [shuffledOptions, setShuffledOptions] = useState([]);
-  const [timeLeft, setTimeLeft] = useState(15);
+  const [timeLeft, setTimeLeft] = useState(30);
 
   const currentQuestion = questions[currentIndex];
 
@@ -16,7 +16,7 @@ const BrainBox = ({ questions, onQuizEnd }) => {
         currentQuestion.correct_answer,
       ];
       setShuffledOptions(options.sort(() => Math.random() - 0.5));
-      setTimeLeft(15);
+      setTimeLeft(30);
     }
   }, [currentQuestion]);
 
@@ -50,7 +50,7 @@ const BrainBox = ({ questions, onQuizEnd }) => {
     if (currentIndex + 1 < questions.length) {
       setCurrentIndex((prev) => prev + 1);
       setSelectedAnswer("");
-      setTimeLeft(15);
+      setTimeLeft(30);
     } else {
       onQuizEnd(newScore);
     }
@@ -58,7 +58,7 @@ const BrainBox = ({ questions, onQuizEnd }) => {
 
   if (!currentQuestion) return <p>Loading...</p>;
 
-  const progressWidth = `${(timeLeft / 15) * 100}%`;
+  const progressWidth = `${(timeLeft / 30) * 100}%`;
 
   return (
     <div className="flex justify-center items-center min-h-screen bg-gradient-to-br from-blue-100 via-white to-blue-50 p-4">

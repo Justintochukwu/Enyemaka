@@ -1,16 +1,55 @@
-# React + Vite
+# 🧠 BrainBox Quiz App  
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+An interactive, AI-inspired **Quiz Application** built with **React + Vite**, designed to make learning engaging, fun, and visually appealing.  
+Users can register, set up their preferred quiz categories and difficulty, answer questions, and view results instantly.  
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Live Demo  
+👉 [View on Vercel](#) *(replace with your actual Vercel deployment link)*  
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 📋 Table of Contents  
+- [Features](#features)  
+- [Tech Stack](#tech-stack)  
+- [Screenshots](#screenshots)  
+- [Project Structure](#project-structure)  
+- [Installation](#installation)  
+- [Usage](#usage)  
+- [Routing Setup](#routing-setup)  
+- [Deployment](#deployment)  
+- [Contributing](#contributing)  
+- [License](#license)  
+- [Author](#author)  
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## ✨ Features  
+
+✅ **Welcome Page** – A friendly entry point introducing the app.  
+✅ **Registration Page** – Collects user info (Full Name, Email).  
+✅ **Quiz Setup** – Users select quiz category, number of questions, and difficulty.  
+✅ **Live Quiz Mode** – Displays one question at a time, tracks score dynamically.  
+✅ **Result Page** – Shows total score and allows restart.  
+✅ **Responsive Design** – Works smoothly on mobile, tablet, and desktop.  
+✅ **Client-side Routing** – Built using `react-router-dom`.  
+
+---
+
+## 🧰 Tech Stack  
+
+| Category | Tools Used |
+|-----------|------------|
+| **Frontend Framework** | React + Vite |
+| **Styling** | Tailwind CSS |
+| **Routing** | React Router DOM |
+| **Quiz Data** | Open Trivia Database API |
+| **Deployment** | Vercel |
+
+---
+
+## 🖼️ Screenshots  
+
+*(Add screenshots here later)*  
+
